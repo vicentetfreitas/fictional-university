@@ -1,4 +1,5 @@
 <?php
+get_header();
 while (have_posts()) {
     the_post(); ?>
     <h2>
@@ -9,4 +10,5 @@ while (have_posts()) {
     </p>
     <hr>
 <?php  }
+get_footer();
 ?>
