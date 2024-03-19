@@ -8,3 +8,9 @@ function university_files()
     wp_enqueue_style('university_extra_style', get_theme_file_uri('/build/index.css'));
 }
 add_action('wp_enqueue_scripts', 'university_files');
+
+function university_features()
+{
+    add_theme_support('title_tag');
+}
+add_action('after_setup_theme', 'university_features');
