@@ -37,7 +37,11 @@
             </div>
         </div>
     <?php }
+
+    echo paginate_links();
+
     ?>
+
 </div>
 
 <?php get_footer(); ?>
