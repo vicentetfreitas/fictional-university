@@ -24,7 +24,7 @@
             <li><a href="<?php echo site_url('/') ?>">Programs</a></li>
             <li><a href="<?php echo site_url('/') ?>">Events</a></li>
             <li><a href="<?php echo site_url('/') ?>">Campuses</a></li>
-            <li><a href="<?php echo site_url('/') ?>">Blog</a></li>
+            <li><a href="<?php echo site_url('/blog') ?>">Blog</a></li>
           </ul>
         </nav>
         <div class="site-header__util">
