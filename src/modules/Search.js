@@ -1,6 +1,5 @@
 import $ from 'jquery';
 class Search {
-
     // 1. describe and create/initiate our object
     constructor() {
         this.resultsDiv = $("#search-overlay__results");
@@ -25,11 +24,10 @@ class Search {
 
     // 3. methods (function, action...)
     typingLogic() {
-
         if (this.searchField.val() != this.previousValue) {
             clearTimeout(this.typingTimer);
+
             if (this.searchField.val()) {
-                
                 if (!this.isSpinnerVisible) {
                     this.resultsDiv.html('<div class="spinner-loader"></div>');
                     this.isSpinnerVisible = true;
@@ -45,8 +43,9 @@ class Search {
     }
 
     getResults() {
-        this.resultsDiv.html("Imagine real search results here...");
-        this.isSpinnerVisible = false;
+        $.getJSON('http://fictional-university.local/wp-json/wp/v2/posts?search=' + this.searchField.val(), function (posts) {
+            alert(posts[0].title.rendered);
+        });
     }
 
     keyPressDispatcher(e) {
