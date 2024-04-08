@@ -1,5 +1,6 @@
 <?php
 
+require get_theme_file_path('/inc/like-route.php');
 require get_theme_file_path('/inc/search-route.php');
 
 function university_custom_rest()
@@ -223,9 +224,7 @@ function university_post_types()
         'menu_icon' => 'dashicons-heart'
     ));
 }
-
 add_action('init', 'university_post_types');
-
 
 // Redirect subscriber accounts out of admin and onto homepage
 add_action('admin_init', 'redirectSubsToFrontend');
