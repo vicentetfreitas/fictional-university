@@ -287,3 +287,9 @@ function makeNotePrivate($data, $postarr)
     return $data;
 }
 add_filter('wp_insert_post_data', 'makeNotePrivate', 10, 2);
+
+function ignoreCertainFiles($exclude_filters){
+    $exclude_filters[] = 'themes/fictional-university-theme/nodes_modules';
+    return $exclude_filters;
+}
+add_filter('ai1wm_exclude_content_from_export','ignoreCertainFiles');
