@@ -304,13 +304,23 @@ function ignoreCertainFiles($exclude_filters)
 add_filter('ai1wm_exclude_content_from_export', 'ignoreCertainFiles');
 
 // fictional block theme
-function bannerBlock()
+class JSXBlock
 {
-    wp_register_script('bannerBlockScript', get_stylesheet_directory_uri() . '/build/banner.js', array(
-        'wp-blocks', 'wp-editor'
-    ));
-    register_block_type("ourblocktheme/banner", array(
-        'editor_script' => 'bannerBlockScript'
-    ));
+    private $name; // Declare the property
+    function __construct($name)
+    {
+        $this->name = $name;
+        add_action('init', [$this, 'onInit']);
+    }
+    function onInit()
+    {
+        wp_register_script($this->name, get_stylesheet_directory_uri() . "/build/{$this->name}.js", array(
+            'wp-blocks', 'wp-editor'
+        ));
+        register_block_type("ourblocktheme/{$this->name}", array(
+            'editor_script' => $this->name
+        ));
+    }
 }
-add_action('init', 'bannerBlock');
+new JSXBlock('banner');
+new JSXBlock('genericheading');
